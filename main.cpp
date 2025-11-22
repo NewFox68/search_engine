@@ -177,25 +177,4 @@ int main() {
         }
         std::cout << "}" << std::endl;
     }
-
-
-    // const auto txt = converter.GetTextDocuments();
-    // index.UpdateDocumentBase(txt);
-    //
-    // std::vector<Entry> res = index.GetWordCount("milk");
-    // for (auto& it : res) {
-    //     std::cout << "{" << it.doc_id << ':' << it.count << "}, ";
-    // }
-    // std::cout << std::endl;
-    // std::vector<Entry> res2 = index.GetWordCount("water");
-    // for (auto& it : res2) {
-    //     std::cout << "{" << it.doc_id << ':' << it.count << "}, ";
-    // }
-    // std::cout << std::endl;
-    // std::vector<Entry> res3 = index.GetWordCount("cappuccino");
-    // for (auto& it : res3) {
-    //     std::cout << "{" << it.doc_id << ':' << it.count << "}, ";
-    // }
-    // std::cout << std::endl;
-
 }

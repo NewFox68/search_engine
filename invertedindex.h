@@ -18,6 +18,11 @@ struct Entry {
 class InvertedIndex {
 public:     InvertedIndex() = default;
     /**
+     * Метод индексирует один документ для запуска
+     * процесса индексации в нескольких потоках
+     */
+    void InvIndexing(std::string doc, int doc_index);
+    /**
     * Обновить или заполнить базу документов, по которой будем совершать
     поиск
     * @param texts_input содержимое документов
