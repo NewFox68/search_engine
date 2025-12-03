@@ -34,13 +34,16 @@ void InvertedIndex::InvIndexing(std::string doc, int doc_index) {
 
 void InvertedIndex::UpdateDocumentBase(std::vector<std::string> input_docs) {
     docs = std::move(input_docs);
+    std::vector<std::thread> threads;
+    threads.reserve(docs.size());
 
-    for (int doc_index = 0; doc_index < docs.size(); ++doc_index) {
-        std::thread thread([&]() {
-            this->InvIndexing(docs[doc_index], doc_index);
+    for (int i = 0; i < docs.size(); ++i) {
+        threads.emplace_back([this, doc = docs[i], doc_index = i]() {
+            this->InvIndexing(doc, doc_index);
         });
-
-        thread.join();
+    }
+    for (auto& th : threads) {
+        th.join();
     }
 }
 

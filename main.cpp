@@ -1,15 +1,8 @@
-// #include <iostream>
-// #include "nlohmann/json.hpp"
-//
-// int main() {
-//     std::cout << "Hello, World!" << std::endl;
-//     return 0;
-// }
-
 #include "converterjson.h"
 #include "invertedindex.h"
 #include "searchserver.h"
 #include "gtest/gtest.h"
+#include <cmath>
 
 TEST(sample_test_case, sample_test)
 {

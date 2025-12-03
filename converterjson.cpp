@@ -1,21 +1,48 @@
 #include "converterjson.h"
+#include <io.h>
 
 std::vector<std::string> ConverterJSON::GetTextDocuments() {
     std::vector<std::string> textDocuments;
-    std::ifstream configFile("config.json");
     nlohmann::json config;
-    configFile >> config;
-    configFile.close();
+    try {
+        std::ifstream configFile("config.json");
+        configFile >> config;
+        configFile.close();
+    }
+    catch (const std::exception & ex) {
+        std::cout << "config file is missing" << std::endl;
+        exit(1);
+    }
 
-    if (config.find("config") != config.end()) {
-        for (const auto& it : config["files"]) {
-            const std::string fileName = it;
+    try {
+        if (config.find("config") == config.end()) {
+            throw std::runtime_error("config file is empty");
+        }
+    }
+    catch (const std::runtime_error &rex) {
+        std::cout << rex.what() << std::endl;
+        exit(2);
+    }
+
+    for (const auto& it : config["files"]) {
+        const std::string fileName = it;
+        try {
             std::ifstream txtFile(fileName);
+            if (!txtFile.is_open()) {
+                throw std::runtime_error("Could not open file " + fileName);
+            }
             std::string text;
             std::getline(txtFile, text);
             textDocuments.emplace_back(text);
+            txtFile.close();
         }
+        catch (const std::exception & ex) {
+            std::cout << ex.what() << std::endl;
+        }
+
     }
+    const std::string searchEngineName = config["config"]["name"];
+    std::cout << searchEngineName + " started!"<< std::endl;
     return textDocuments;
 }
 
@@ -51,27 +78,38 @@ std::vector<std::string> ConverterJSON::GetRequests() {
 
 void ConverterJSON::putAnswers(std::vector<std::vector<std::pair<int, float> > > answers) {
     std::ofstream answerFile("answers.json");
-    answerFile << '{' << '\n' << "\t\"answers\": {\n";
-    int answer_index = 1;
-    for (const auto& it : answers) {
-        if (!it.empty()) {
-            answerFile <<  "\t\t\"request" + std::to_string(answer_index++) + "\": {\n";
-            answerFile <<  "\t\t\t\"result\": " << "\"true\"" <<",\n ";
-            answerFile <<  "\t\t\t\"relevance\": [\n";
-//            std::pair<int, float> el;
-            for (auto elem = it.begin(); elem != it.end() - 1; ++elem ) {
-                answerFile << "\t\t\t\t[" << elem->first << ", " << elem->second << "]," << std::endl;
+    nlohmann::ordered_json answer;
+    nlohmann::ordered_json request;
+
+    for (int i = 0; i < answers.size(); i++) {
+        std::string num;
+        if (i < 10) num = "00";
+        if (i > 10 && i < 100) num = "0";
+        if (!answers[i].empty()) {
+            nlohmann::ordered_json data;
+//            nlohmann::json pair;
+            data["result"] = "true";
+//            for (const auto& it : answers[i]) {
+            for ( int j = 0; j < answers[i].size(); j++ ) {
+                nlohmann::ordered_json pair;
+                pair["docid"] = answers[i][j].first;
+                pair["ranc"] = std::stod(std::to_string(answers[i][j].second));
+//                std::string text;
+//                text = "docid: " + std::to_string(it.first) + ", ranc: " + std::to_string(it.second);
+//                data["relevance"].emplace_back(text);
+                data["relevance"].emplace_back(pair);
             }
-            answerFile << "\t\t\t\t[" << it.rbegin()->first << ", " << it.rbegin()->second << "]" << std::endl;
-            answerFile << "\t\t\t]\n";
+            request["request" + num + std::to_string(i + 1)] = data;
         }
-        else {
-            answerFile <<  "\t\t\"request" + std::to_string(answer_index) + "\": {\n";
-            answerFile <<  "\t\t\t\"result\": " << "\"false\"" <<",\n }";
+        if (answers[i].empty()) {
+            nlohmann::ordered_json data;
+            data["result"] = "false";
+            request["request" + num + std::to_string(i + 1)] = data;
         }
-        answerFile << "\t\t}\n";
-        answerFile << "\t}\n";
+
+        answer["answers"] = request;
     }
-    answerFile << '}' << std::endl;
+
+    answerFile << answer.dump(4);
     answerFile.close();
 }
