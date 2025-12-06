@@ -1,8 +1,31 @@
 #include "converterjson.h"
 #include <io.h>
+#include <regex>
+#include <algorithm>
+
+std::mutex mtx2;
+
+void ConverterJSON::NormalizeSpaсesToLower(const std::string fName, int index) {
+    try {
+        std::ifstream txtFile(fName);
+        if (!txtFile.is_open()) {
+            throw std::runtime_error("Could not open file " + fName);
+        }
+        std::string text;
+        std::getline(txtFile, text);
+        txtFile.close();
+        std::string finText = std::regex_replace(text, std::regex(" {2,}"), " ");
+        std::transform(finText.begin(), finText.end(), finText.begin(), ::tolower);
+        mtx2.lock();
+        textDoc.insert(textDoc.begin() + index, finText);
+        mtx2.unlock();
+    }
+    catch (const std::exception & ex) {
+        std::cout << ex.what() << std::endl;
+    }
+}
 
 std::vector<std::string> ConverterJSON::GetTextDocuments() {
-    std::vector<std::string> textDocuments;
     nlohmann::json config;
     try {
         std::ifstream configFile("config.json");
@@ -24,26 +47,21 @@ std::vector<std::string> ConverterJSON::GetTextDocuments() {
         exit(2);
     }
 
-    for (const auto& it : config["files"]) {
-        const std::string fileName = it;
-        try {
-            std::ifstream txtFile(fileName);
-            if (!txtFile.is_open()) {
-                throw std::runtime_error("Could not open file " + fileName);
-            }
-            std::string text;
-            std::getline(txtFile, text);
-            textDocuments.emplace_back(text);
-            txtFile.close();
-        }
-        catch (const std::exception & ex) {
-            std::cout << ex.what() << std::endl;
-        }
+    std::vector<std::thread> threads;
+    textDoc.reserve(config["files"].size());
+    threads.reserve(textDoc.size());
 
+    for (int i = 0; i < config["files"].size(); i++) {
+        const std::string fileName = config["files"][i];
+        threads.emplace_back([this, fName = fileName, index = i](){this->NormalizeSpaсesToLower(fName, index);});
     }
+
+    for (auto& thread : threads) { thread.join(); }
+
     const std::string searchEngineName = config["config"]["name"];
     std::cout << searchEngineName + " started!"<< std::endl;
-    return textDocuments;
+
+    return textDoc;
 }
 
 int ConverterJSON::GetResponsesLimit() const {
@@ -87,16 +105,11 @@ void ConverterJSON::putAnswers(std::vector<std::vector<std::pair<int, float> > >
         if (i > 10 && i < 100) num = "0";
         if (!answers[i].empty()) {
             nlohmann::ordered_json data;
-//            nlohmann::json pair;
             data["result"] = "true";
-//            for (const auto& it : answers[i]) {
             for ( int j = 0; j < answers[i].size(); j++ ) {
                 nlohmann::ordered_json pair;
                 pair["docid"] = answers[i][j].first;
                 pair["ranc"] = std::stod(std::to_string(answers[i][j].second));
-//                std::string text;
-//                text = "docid: " + std::to_string(it.first) + ", ranc: " + std::to_string(it.second);
-//                data["relevance"].emplace_back(text);
                 data["relevance"].emplace_back(pair);
             }
             request["request" + num + std::to_string(i + 1)] = data;
