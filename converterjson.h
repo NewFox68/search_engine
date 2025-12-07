@@ -15,7 +15,6 @@ class ConverterJSON {
     std::vector<std::string> textDoc;
 public:
     ConverterJSON() = default;
-
     void NormalizeSpaсesToLower(const std::string fName, int index);
     /**
     * Метод получения содержимого файлов
