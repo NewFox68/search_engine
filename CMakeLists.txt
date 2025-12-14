@@ -6,7 +6,5 @@ set(CMAKE_CXX_STANDARD 17)
 set(INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
 set(RESOURCES ${CMAKE_SOURCE_DIR}/src)
 
-#option(BUILD_TESTS "Build tests" ON)
-
 add_subdirectory(src)
 add_subdirectory(tests)

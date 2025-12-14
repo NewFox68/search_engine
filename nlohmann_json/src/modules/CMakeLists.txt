@@ -21,7 +21,7 @@ target_link_libraries(nlohmann_json_modules
 
 target_include_directories(nlohmann_json_modules
     PRIVATE
-    ${PROJECT_SOURCE_DIR}/include
+        ${PROJECT_SOURCE_DIR}/include_
 )
 
 target_compile_features(nlohmann_json_modules PUBLIC cxx_std_20)

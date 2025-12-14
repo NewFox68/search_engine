@@ -33,42 +33,23 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2f17949-767a-49d0-9c76-a67bcae3c16c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/config/answers.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/requests.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/.idea/editor.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/.idea/search_engine.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/converterjson.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/invertedindex.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/searchserver.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/file001.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/file002.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/file003.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/file004.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/converterjson.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/invertedindex.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/searchserver.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/index_tests.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/server_tests.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/tests.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="b2f17949-767a-49d0-9c76-a67bcae3c16c" name="Changes" comment="Distribution by directory">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/converterjson.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/converterjson.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/invertedindex.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/invertedindex.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/searchserver.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/searchserver.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/answers.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/.idea/editor.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/.idea/search_engine.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nlohmann_json/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/nlohmann_json/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nlohmann_json/cmake/ci.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/nlohmann_json/cmake/ci.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nlohmann_json/src/modules/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/nlohmann_json/src/modules/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/converterjson.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/converterjson.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/server_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/server_tests.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +75,14 @@
     &quot;accountId&quot;: &quot;fd9e58c3-44cc-4a45-8db0-f7f704d1fa54&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="ProjectApplicationVersion">
     <option name="ide" value="CLion" />
     <option name="majorVersion" value="2025" />
@@ -133,6 +122,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\alienware\CLionProjects\search_engine\include" />
+    </key>
+  </component>
   <component name="RunManager" selected="Google Test.search_engine">
     <configuration name="search_engine" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="search_engine" TARGET_NAME="search_engine" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="search_engine" RUN_TARGET_NAME="search_engine" TEST_MODE="SUITE_TEST">
       <method v="2">
@@ -184,8 +178,62 @@
       <workItem from="1765606387968" duration="1058000" />
       <workItem from="1765607657438" duration="150000" />
       <workItem from="1765607829062" duration="257000" />
-      <workItem from="1765608115158" duration="370000" />
+      <workItem from="1765608115158" duration="475000" />
+      <workItem from="1765625566773" duration="189000" />
+      <workItem from="1765637208947" duration="217000" />
+      <workItem from="1765637449773" duration="350000" />
+      <workItem from="1765637820313" duration="375000" />
+      <workItem from="1765640278596" duration="123000" />
+      <workItem from="1765640410038" duration="419000" />
+      <workItem from="1765640840030" duration="104000" />
+      <workItem from="1765642648741" duration="251000" />
+      <workItem from="1765642914743" duration="303000" />
+      <workItem from="1765643350447" duration="757000" />
+      <workItem from="1765644122417" duration="442000" />
+      <workItem from="1765644837548" duration="644000" />
+      <workItem from="1765645494834" duration="713000" />
+      <workItem from="1765646221954" duration="169000" />
+      <workItem from="1765646408408" duration="55000" />
+      <workItem from="1765646472481" duration="348000" />
+      <workItem from="1765647602843" duration="403000" />
+      <workItem from="1765648026237" duration="744000" />
+      <workItem from="1765649224624" duration="409000" />
+      <workItem from="1765649697760" duration="215000" />
+      <workItem from="1765649925047" duration="116000" />
+      <workItem from="1765650223489" duration="1551000" />
+      <workItem from="1765703393274" duration="130000" />
+      <workItem from="1765703535072" duration="1375000" />
+      <workItem from="1765705330400" duration="1401000" />
+      <workItem from="1765729709957" duration="271000" />
+      <workItem from="1765729990723" duration="2224000" />
+      <workItem from="1765732238172" duration="202000" />
+      <workItem from="1765732452698" duration="85000" />
+      <workItem from="1765732881341" duration="94000" />
+      <workItem from="1765733226972" duration="20000" />
+      <workItem from="1765733336947" duration="33000" />
+      <workItem from="1765733465899" duration="34000" />
+      <workItem from="1765733751166" duration="32000" />
+      <workItem from="1765733845168" duration="16000" />
+      <workItem from="1765733904069" duration="20000" />
+      <workItem from="1765734004153" duration="25000" />
+      <workItem from="1765734056994" duration="12000" />
+      <workItem from="1765734254354" duration="15000" />
+      <workItem from="1765734363717" duration="30000" />
+      <workItem from="1765734429423" duration="22000" />
+      <workItem from="1765734614020" duration="73000" />
+      <workItem from="1765734701356" duration="58000" />
+      <workItem from="1765734898258" duration="949000" />
+      <workItem from="1765737344784" duration="378000" />
     </task>
+    <task id="LOCAL-00001" summary="Distribution by directory">
+      <option name="closed" value="true" />
+      <created>1765608550894</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1765608550894</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,5 +243,9 @@
     <isAutomaticCheckingOnLaunch value="false" />
     <isAutomaticFoundErrors value="true" />
     <isAutomaticReloadCMake value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Distribution by directory" />
+    <option name="LAST_COMMIT_MESSAGE" value="Distribution by directory" />
   </component>
 </project>

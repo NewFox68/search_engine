@@ -72,7 +72,7 @@ find_program(PVS_STUDIO_ANALYZER_TOOL NAMES pvs-studio-analyzer)
 find_program(SCAN_BUILD_TOOL NAMES scan-build-15 scan-build-14 scan-build-13 scan-build-12 scan-build-11 scan-build)
 
 # the individual source files
-file(GLOB_RECURSE SRC_FILES ${PROJECT_SOURCE_DIR}/include/nlohmann/*.hpp)
+file(GLOB_RECURSE SRC_FILES ${PROJECT_SOURCE_DIR}/include_/nlohmann/*.hpp)
 
 ###############################################################################
 # Thorough check with recent compilers
@@ -275,7 +275,7 @@ add_custom_target(ci_test_clang_sanitizer
 ###############################################################################
 
 file(GLOB_RECURSE INDENT_FILES
-    ${PROJECT_SOURCE_DIR}/include/nlohmann/*.hpp
+        ${PROJECT_SOURCE_DIR}/include_/nlohmann/*.hpp
         ${PROJECT_SOURCE_DIR}/tests/src/*.cpp
         ${PROJECT_SOURCE_DIR}/tests/src/*.hpp
         ${PROJECT_SOURCE_DIR}/tests/benchmarks/src/benchmarks.cpp
@@ -360,7 +360,7 @@ add_custom_target(ci_cppcheck
     COMMAND ${Python3_EXECUTABLE} -mvenv venv_cppcheck
     COMMAND venv_cppcheck/bin/pip3 --quiet install -r ${CMAKE_SOURCE_DIR}/cmake/requirements/requirements-cppcheck.txt
     COMMAND venv_cppcheck/bin/cppcheck --enable=warning --check-level=exhaustive --inline-suppr --inconclusive --force
-            --std=c++11 ${PROJECT_SOURCE_DIR}/include/nlohmann/json.hpp -I ${CMAKE_SOURCE_DIR}/include
+            --std=c++11 ${PROJECT_SOURCE_DIR}/include_/nlohmann/json.hpp -I ${CMAKE_SOURCE_DIR}/include
             --error-exitcode=1 --relative-paths=${PROJECT_SOURCE_DIR} -j ${N} --include=default_defines.hpp
             --cppcheck-build-dir=cppcheck --check-level=exhaustive
             -UJSON_CATCH_USER -UJSON_TRY_USER -UJSON_ASSERT -UJSON_INTERNAL_CATCH -UJSON_THROW
@@ -504,7 +504,7 @@ set(iwyu_path_and_options ${IWYU_TOOL} -Xiwyu --max_line_length=300)
 
 foreach(SRC_FILE ${SRC_FILES})
     # get relative path of the header file
-    file(RELATIVE_PATH RELATIVE_SRC_FILE "${PROJECT_SOURCE_DIR}/include/nlohmann" "${SRC_FILE}")
+    file(RELATIVE_PATH RELATIVE_SRC_FILE "${PROJECT_SOURCE_DIR}/include_/nlohmann" "${SRC_FILE}")
     # replace slashes and strip suffix
     string(REPLACE "/" "_" RELATIVE_SRC_FILE "${RELATIVE_SRC_FILE}")
     string(REPLACE ".hpp" "" RELATIVE_SRC_FILE "${RELATIVE_SRC_FILE}")
@@ -512,7 +512,7 @@ foreach(SRC_FILE ${SRC_FILES})
     file(WRITE "${PROJECT_BINARY_DIR}/src_single/${RELATIVE_SRC_FILE}.cpp" "#include \"${SRC_FILE}\" // IWYU pragma: keep\n\nint main()\n{}\n")
     # create executable
     add_executable(single_${RELATIVE_SRC_FILE} EXCLUDE_FROM_ALL ${PROJECT_BINARY_DIR}/src_single/${RELATIVE_SRC_FILE}.cpp)
-    target_include_directories(single_${RELATIVE_SRC_FILE} PRIVATE ${PROJECT_SOURCE_DIR}/include)
+    target_include_directories(single_${RELATIVE_SRC_FILE} PRIVATE ${PROJECT_SOURCE_DIR}/include_)
     target_compile_features(single_${RELATIVE_SRC_FILE} PRIVATE cxx_std_11)
     set_property(TARGET single_${RELATIVE_SRC_FILE} PROPERTY CXX_INCLUDE_WHAT_YOU_USE "${iwyu_path_and_options}")
     # remember binary for ci_single_binaries target

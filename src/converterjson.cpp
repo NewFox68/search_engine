@@ -3,6 +3,9 @@
 #include <regex>
 #include <algorithm>
 #include <mutex>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
 
 std::mutex mtx2;
 
@@ -10,7 +13,7 @@ void ConverterJSON::NormalizeSpaсesToLower(const std::string fName, int index) 
     try {
         std::ifstream txtFile(fName);
         if (!txtFile.is_open()) {
-            throw std::runtime_error("Could not open file " + fName);
+            throw std::runtime_error("Could not open file " + fName + "\n");
         }
         std::string text;
         std::getline(txtFile, text);
@@ -49,8 +52,9 @@ std::vector<std::string> ConverterJSON::GetTextDocuments() {
     }
 
     std::vector<std::thread> threads;
-    textDoc.reserve(config["files"].size());
-    threads.reserve(textDoc.size());
+    textDoc.clear();
+    textDoc.resize(config["files"].size());
+    threads.resize(config["files"].size());
 
     for (int i = 0; i < config["files"].size(); i++) {
         const std::string fileName = config["files"][i];
@@ -96,7 +100,10 @@ std::vector<std::string> ConverterJSON::GetRequests() {
 }
 
 void ConverterJSON::putAnswers(std::vector<std::vector<std::pair<int, float> > > answers) {
-    std::ofstream answerFile("answers.json");
+    std::string fileName = "..\\config\\answers.json";
+//    std::filesystem::path fpath{"config/answers.json"};
+//    std::cout << fpath << std::endl;
+    std::ofstream answerFile(fileName);
     nlohmann::ordered_json answer;
     nlohmann::ordered_json request;
 
