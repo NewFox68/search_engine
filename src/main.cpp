@@ -15,7 +15,7 @@ int main() {
 
     std::vector<std::vector<std::pair<int, float> > > ans;
 
-    for (auto it : vec) {
+    for (const auto& it : vec) {
         std::vector<std::pair<int, float>> tmp_ans;
         for (auto el : it) {
             std::pair<int, float>  p;

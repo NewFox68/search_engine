@@ -9,6 +9,7 @@ FetchContent_Declare(
         GIT_TAG release-1.12.1
 )
 
+# Включаем googletest в проект
 FetchContent_MakeAvailable(googletest)
 
 enable_testing()
@@ -23,4 +24,4 @@ add_executable(search_test index_tests.cpp server_tests.cpp
 
 target_include_directories(search_test PUBLIC ${gtest_SOURCE_DIR}/include ${INCLUDE_DIR})
 
-target_link_libraries(search_test PRIVATE gtest_main)
+target_link_libraries(search_test PRIVATE gtest_main nlohmann_json::nlohmann_json)

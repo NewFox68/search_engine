@@ -9,7 +9,7 @@
 
 std::mutex mtx2;
 
-void ConverterJSON::NormalizeSpaсesToLower(const std::string fName, int index) {
+void ConverterJSON::NormalizeSpaсesToLower(const std::string fName, const int index) {
     try {
         std::ifstream txtFile(fName);
         if (!txtFile.is_open()) {
@@ -21,7 +21,7 @@ void ConverterJSON::NormalizeSpaсesToLower(const std::string fName, int index) 
         std::string finText = std::regex_replace(text, std::regex(" {2,}"), " ");
         std::transform(finText.begin(), finText.end(), finText.begin(), ::tolower);
         mtx2.lock();
-        textDoc.insert(textDoc.begin() + index, finText);
+        textDoc[index] = finText;
         mtx2.unlock();
     }
     catch (const std::exception & ex) {
@@ -32,7 +32,8 @@ void ConverterJSON::NormalizeSpaсesToLower(const std::string fName, int index) 
 std::vector<std::string> ConverterJSON::GetTextDocuments() {
     nlohmann::json config;
     try {
-        std::ifstream configFile("config.json");
+        auto fpath  = std::filesystem::absolute("./../../config/config.json");
+        std::ifstream configFile(fpath);
         configFile >> config;
         configFile.close();
     }
@@ -53,10 +54,10 @@ std::vector<std::string> ConverterJSON::GetTextDocuments() {
 
     std::vector<std::thread> threads;
     textDoc.clear();
-    textDoc.resize(config["files"].size());
-    threads.resize(config["files"].size());
+    const int threadSize = config["files"].size();
+    textDoc.resize(threadSize);
 
-    for (int i = 0; i < config["files"].size(); i++) {
+    for (int i = 0; i < threadSize; i++) {
         const std::string fileName = config["files"][i];
         threads.emplace_back([this, fName = fileName, index = i](){this->NormalizeSpaсesToLower(fName, index);});
     }
@@ -71,7 +72,8 @@ std::vector<std::string> ConverterJSON::GetTextDocuments() {
 
 int ConverterJSON::GetResponsesLimit() const {
     int max_resp = 0;
-    std::ifstream configFile("config.json");
+    auto fpath  = std::filesystem::absolute("./../../config/config.json");
+    std::ifstream configFile(fpath);
     nlohmann::json config;
     configFile >> config;
     configFile.close();
@@ -85,7 +87,8 @@ int ConverterJSON::GetResponsesLimit() const {
 
 std::vector<std::string> ConverterJSON::GetRequests() {
     std::vector<std::string> requests;
-    std::ifstream requestFile("requests.json");
+    auto fpath  = std::filesystem::absolute("./../../config/requests.json");
+    std::ifstream requestFile(fpath);
     nlohmann::json req;
     requestFile >> req;
     requestFile.close();
@@ -100,10 +103,8 @@ std::vector<std::string> ConverterJSON::GetRequests() {
 }
 
 void ConverterJSON::putAnswers(std::vector<std::vector<std::pair<int, float> > > answers) {
-    std::string fileName = "..\\config\\answers.json";
-//    std::filesystem::path fpath{"config/answers.json"};
-//    std::cout << fpath << std::endl;
-    std::ofstream answerFile(fileName);
+    auto fpath  = std::filesystem::absolute("./../../config/answers.json");
+    std::ofstream answerFile(fpath);
     nlohmann::ordered_json answer;
     nlohmann::ordered_json request;
 
@@ -114,10 +115,10 @@ void ConverterJSON::putAnswers(std::vector<std::vector<std::pair<int, float> > >
         if (!answers[i].empty()) {
             nlohmann::ordered_json data;
             data["result"] = "true";
-            for ( int j = 0; j < answers[i].size(); j++ ) {
+            for (auto & j : answers[i]) {
                 nlohmann::ordered_json pair;
-                pair["docid"] = answers[i][j].first;
-                pair["ranc"] = std::stod(std::to_string(answers[i][j].second));
+                pair["docid"] = j.first;
+                pair["ranc"] = std::stod(std::to_string(j.second));
                 data["relevance"].emplace_back(pair);
             }
             request["request" + num + std::to_string(i + 1)] = data;

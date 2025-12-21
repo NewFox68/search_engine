@@ -20,6 +20,7 @@
   </component>
   <component name="CMakeRunConfigurationManager">
     <generated>
+      <config projectName="search_engine" targetName="search_test" />
       <config projectName="search_engine" targetName="gtest_main" />
       <config projectName="search_engine" targetName="gtest" />
       <config projectName="search_engine" targetName="gmock_main" />
@@ -33,23 +34,14 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2f17949-767a-49d0-9c76-a67bcae3c16c" name="Changes" comment="Distribution by directory">
+    <list default="true" id="b2f17949-767a-49d0-9c76-a67bcae3c16c" name="Changes" comment="Correcting errors in file names and output">
+      <change afterPath="$PROJECT_DIR$/config/answers.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/answers.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/.idea/editor.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/.idea/search_engine.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nlohmann_json/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/nlohmann_json/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nlohmann_json/cmake/ci.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/nlohmann_json/cmake/ci.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nlohmann_json/src/modules/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/nlohmann_json/src/modules/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/converterjson.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/converterjson.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/server_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/server_tests.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +74,8 @@
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectApplicationVersion">
     <option name="ide" value="CLion" />
@@ -103,7 +97,9 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Google Test.TestCaseSearchServer.TestTop5.executor&quot;: &quot;Run&quot;,
     &quot;Google Test.search_engine.executor&quot;: &quot;Run&quot;,
+    &quot;Google Test.search_test.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -127,8 +123,31 @@
       <recent name="C:\Users\alienware\CLionProjects\search_engine\include" />
     </key>
   </component>
-  <component name="RunManager" selected="Google Test.search_engine">
+  <component name="RunManager" selected="Google Test.search_test">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestCaseSearchServer.TestTop5" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="search_engine" TARGET_NAME="search_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="search_engine" RUN_TARGET_NAME="search_test" TEST_CLASS="TestCaseSearchServer" TEST_METHOD="TestTop5" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="sample_test_case.sample_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" TEST_CLASS="sample_test_case" TEST_METHOD="sample_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="search_engine" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="search_engine" TARGET_NAME="search_engine" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="search_engine" RUN_TARGET_NAME="search_engine" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="search_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="search_engine" TARGET_NAME="search_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="search_engine" RUN_TARGET_NAME="search_test" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
@@ -160,7 +179,16 @@
       <item itemvalue="CMake Application.gtest" />
       <item itemvalue="CMake Application.gtest_main" />
       <item itemvalue="Google Test.search_engine" />
+      <item itemvalue="Google Test.search_test" />
+      <item itemvalue="Google Test.TestCaseSearchServer.TestTop5" />
+      <item itemvalue="Google Test.sample_test_case.sample_test" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Google Test.TestCaseSearchServer.TestTop5" />
+        <item itemvalue="Google Test.sample_test_case.sample_test" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -223,7 +251,30 @@
       <workItem from="1765734614020" duration="73000" />
       <workItem from="1765734701356" duration="58000" />
       <workItem from="1765734898258" duration="949000" />
-      <workItem from="1765737344784" duration="378000" />
+      <workItem from="1765737344784" duration="2157000" />
+      <workItem from="1765741269191" duration="40000" />
+      <workItem from="1765741340203" duration="22000" />
+      <workItem from="1765741439779" duration="22000" />
+      <workItem from="1765741640235" duration="14000" />
+      <workItem from="1765741667585" duration="16000" />
+      <workItem from="1765741794865" duration="11000" />
+      <workItem from="1765742585213" duration="4000" />
+      <workItem from="1765908676050" duration="8000" />
+      <workItem from="1765908849122" duration="9000" />
+      <workItem from="1766170282028" duration="525000" />
+      <workItem from="1766170837660" duration="568000" />
+      <workItem from="1766171421877" duration="177000" />
+      <workItem from="1766240881948" duration="1011000" />
+      <workItem from="1766241910146" duration="1064000" />
+      <workItem from="1766242991203" duration="554000" />
+      <workItem from="1766243744533" duration="1358000" />
+      <workItem from="1766317150148" duration="870000" />
+      <workItem from="1766319422553" duration="200000" />
+      <workItem from="1766342147147" duration="2213000" />
+      <workItem from="1766344426986" duration="13000" />
+      <workItem from="1766344762536" duration="302000" />
+      <workItem from="1766345215200" duration="865000" />
+      <workItem from="1766346617710" duration="12000" />
     </task>
     <task id="LOCAL-00001" summary="Distribution by directory">
       <option name="closed" value="true" />
@@ -233,7 +284,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765608550894</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Correcting errors in file names and output">
+      <option name="closed" value="true" />
+      <created>1765738001921</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1765738001921</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,6 +305,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Distribution by directory" />
-    <option name="LAST_COMMIT_MESSAGE" value="Distribution by directory" />
+    <MESSAGE value="Correcting errors in file names and output" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correcting errors in file names and output" />
   </component>
 </project>

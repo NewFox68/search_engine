@@ -10,8 +10,8 @@ FetchContent_Declare(json
 FetchContent_MakeAvailable(json)
 
 # копируем файлы в каталог сборки программы
-configure_file(${CMAKE_SOURCE_DIR}/config/config.json ${CMAKE_CURRENT_BINARY_DIR})
-configure_file(${CMAKE_SOURCE_DIR}/config/requests.json ${CMAKE_CURRENT_BINARY_DIR})
+#configure_file(${CMAKE_SOURCE_DIR}/config/config.json ${CMAKE_CURRENT_BINARY_DIR})
+#configure_file(${CMAKE_SOURCE_DIR}/config/requests.json ${CMAKE_CURRENT_BINARY_DIR})
 
 add_executable(search_engine main.cpp
         ${INCLUDE_DIR}/converterjson.h
