@@ -34,13 +34,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2f17949-767a-49d0-9c76-a67bcae3c16c" name="Changes" comment="Correcting errors in file names and output">
-      <change afterPath="$PROJECT_DIR$/config/answers.json" afterDir="false" />
+    <list default="true" id="b2f17949-767a-49d0-9c76-a67bcae3c16c" name="Changes" comment="Correcting errors in file paths and indexing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/converterjson.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/converterjson.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/CMakeLists.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -123,12 +118,7 @@
       <recent name="C:\Users\alienware\CLionProjects\search_engine\include" />
     </key>
   </component>
-  <component name="RunManager" selected="Google Test.search_test">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Google Test.search_engine">
     <configuration name="TestCaseSearchServer.TestTop5" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="search_engine" TARGET_NAME="search_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="search_engine" RUN_TARGET_NAME="search_test" TEST_CLASS="TestCaseSearchServer" TEST_METHOD="TestTop5" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -274,7 +264,10 @@
       <workItem from="1766344426986" duration="13000" />
       <workItem from="1766344762536" duration="302000" />
       <workItem from="1766345215200" duration="865000" />
-      <workItem from="1766346617710" duration="12000" />
+      <workItem from="1766346617710" duration="495000" />
+      <workItem from="1766377871775" duration="421000" />
+      <workItem from="1766383799854" duration="117000" />
+      <workItem from="1766383935966" duration="12000" />
     </task>
     <task id="LOCAL-00001" summary="Distribution by directory">
       <option name="closed" value="true" />
@@ -292,7 +285,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765738001921</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Correcting errors in file paths and indexing">
+      <option name="closed" value="true" />
+      <created>1766346729377</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1766346729377</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,9 +304,21 @@
     <isAutomaticFoundErrors value="true" />
     <isAutomaticReloadCMake value="true" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Distribution by directory" />
     <MESSAGE value="Correcting errors in file names and output" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correcting errors in file names and output" />
+    <MESSAGE value="Correcting errors in file paths and indexing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correcting errors in file paths and indexing" />
   </component>
 </project>

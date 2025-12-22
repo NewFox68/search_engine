@@ -15,6 +15,9 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(search_test index_tests.cpp server_tests.cpp
+        ${INCLUDE_DIR}/converterjson.h
+        ${RESOURCES}/converterjson.cpp
+
         ${INCLUDE_DIR}/invertedindex.h
         ${RESOURCES}/invertedindex.cpp
 
